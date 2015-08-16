@@ -114,11 +114,19 @@ void display()
 {
     int i;
     printf("\n current elemnets in queue");
+   if(front<rear)
+   {
     for(i=front;i<=rear;i++)
     {
         printf("%3d",q[i]);
 
     }
+   }
+   else
+   {
+    for(i=rear+1;i<=front;i++)
+        printf("%3d",q[i]);
+   }
     return;
 }
 
@@ -130,6 +138,7 @@ void push()
     if(front==1)
     {
         ahead=SIZE;
+
     }
     else
     {
