@@ -1,2 +1,1 @@
-# myprg-s2
-This contains programs in c-lanuguage
+This Repo contains several programs by me during my free time :0)
