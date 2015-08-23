@@ -16,7 +16,7 @@
 #define NUMHID 2
 #define NUMOUT 1
 
-#define rando() ((double)rand()/(RAND_MAX+1L))
+#define rando() ((double)rand()/(RAND_MAX+1))
 
 main() {
     int    i, j, k, p, np, op, ranpat[NUMPAT+1], epoch;
