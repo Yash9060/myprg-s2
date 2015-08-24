@@ -8,14 +8,14 @@
 int main()
 {
     int x[3]={1,2,3}, y[3]={2,4,6}, ranpat[3];
-    int NumPattern = 3, p, i, np, op, epoch;
-    double eta = 0.5, error, a0, a1, d0, d1, output;
-    a0 = 0;
-    a1 = 0;
-    printf("a1 = %lf, a1 = %lf\n", a0, a1);
+    int NumPattern = 3, p, np, op, epoch;
+    double eta = 0.5, error, a0, a1, output;
+    a0 = rando();
+    a1 = rando();
 
     for(epoch = 1; epoch <= MAX_EPOCH; epoch++)
     {
+        /* Pattern randomizer code */
         for(p=0; p<NumPattern; p++)
         {
             ranpat[p] = p;
@@ -25,17 +25,14 @@ int main()
             np = p +  rando() * (NumPattern - p);
             op = ranpat[p]; ranpat[p] = ranpat[np]; ranpat[np] = op;
         }
-        d0 = 0.0;
-        d1 = 0.0;
         error = 0.0;
         for(np = 0; np<NumPattern; np++)
         {
+            /* Gradient Descent Algorithm */
             p = ranpat[np];
             output = a0 + (a1 * x[p]);
-            d0 = a0 - eta*(output - y[p])/NumPattern;
-            d1 = a1 - eta*(output - y[p])*x[p]/NumPattern;
-            a0 = d0;
-            a1 = d1;
+            a0 = a0 - eta*(output - y[p])/NumPattern;
+            a1 = a1 - eta*(output - y[p])*x[p]/NumPattern;
             error += 0.5 * (output - y[p]) * (output - y[p]) / NumPattern;
             //printf("x = %d y = %d output = %lf Error = %lf\n",x[p], y[p], output, error);
         }
