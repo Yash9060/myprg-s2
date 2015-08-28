@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{	int i=0,j=0,temp1=0,temp2=0,flag=0;
+	char a[50],b[50];
+	printf("\n enter your 1st string ");
+	scanf("%s",a);
+	printf("\n enter your 2nd string ");
+	scanf("%s",b);
+	/*Both for loop below are just for printing string */
+	printf("\nstring1=");
+	for (i = 0; i < strlen(a); i += 1)
+	{
+		printf("%c",a[i]);
+	}
+	printf("\nstring2=");
+	for (i = 0; i < strlen(b); i += 1)
+	{
+		printf("%c",b[i]);
+	}
+	if (strlen(a)==strlen(b))
+	{
+		//printf("\n condition 1 passed ");
+		for (i = 0; i < strlen(a); i += 1)
+		{
+			for (j = 0; j < strlen(a); j += 1)
+			{
+				if (a[i]==a[j])
+				{ 
+	 				temp1++;	
+	 			}		 /*every charcter of a is compared with every othe character one by one and then value of temp1 is increased if they are same */
+			}
+			
+			for (j = 0; j < strlen(b); j += 1)
+			{
+				if(a[i]==b[j])
+				{	
+					temp2++;
+				}			/*every character of b is compared with every other character of a and value of temp2 is increased if they are same */
+			}
+		
+			if (temp1==temp2)			/*if number of some particular character in a and b is equal the set flag to 1*/
+			{
+				flag=1;
+			}
+			else
+			{
+				//goto stcut;
+				printf("\n they are not anagrams(inside condition1) \n "); /*flag can be considered to be zero here */
+				return 0;
+			}
+		
+    			temp1=0;					/*Resetting temp1 && temp2 to 0 for again comparison for next charcter*/
+			temp2=0;
+
+		}
+	}
+	else
+	{
+		printf("\n are not anagrams(from strlen con) \n"); /*flag can be set zero here*/
+	}
+	//stcut:
+	if(flag==1)
+		printf("\n Are anagrams \n");
+return 0;
+}
