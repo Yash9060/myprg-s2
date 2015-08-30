@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<math.h>
 
 /* Hera is Linear Regression algorithm
  * I tried to solve linear regression algorithm using
@@ -30,10 +29,10 @@ int main()
         scanf("%lf %lf", &x, &y);
         sumx += x;
         sumxy += x * y;
-        sumxsq += pow(x,2);
+        sumxsq += x * x;
         sumy += y;
     }
-    denom = (m * sumxsq) - (sumx * sumx);
+    denom = (m*sumxsq) - (sumx*sumx);
     a0 = (sumy*sumxsq - sumx*sumxy)/denom;
     a1 = (m*sumxy - sumx*sumy)/denom;
     printf("Final Equation is %lfx+%lf", a1, a0);
