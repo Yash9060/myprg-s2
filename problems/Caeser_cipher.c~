@@ -12,12 +12,12 @@ Next line will an encrypted string comprising of only upper case letters. */
 #include <stdio.h>
 int main()
 {
-	char a[10],message;	/*a to store the encrepted message,message is optional it can be used to store the original message */
+	char a[10],message;
 	int key,i=0;
 	printf("\n enter the value of key ");
 	scanf("%d",&key);
 	printf("\n enter the message with # at end\n");
-	while (a[i]!='#')		/*scanning the message until # is found */
+	while (a[i]!='#')
 	{
 		scanf("%c",&a[i]);
 		if (a[i]=='#')
@@ -26,7 +26,7 @@ int main()
 		}
 		i++;
 	}
-	for (i = 0; a[i]!='#'; i += 1) /*if the value of a[i]+key> z then finding its difference and the adding that to 'a'*/
+	for (i = 0; a[i]!='#'; i += 1)
 	{
 		if(a[i]+key>'z')
 		{
